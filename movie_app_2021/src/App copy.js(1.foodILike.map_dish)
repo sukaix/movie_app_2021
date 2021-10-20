@@ -1,0 +1,54 @@
+import React from 'react';
+
+function Food({ name, picture }){
+ 
+  return (
+    <div>
+      <h2>I like { name }</h2>
+      <img src={picture} alt='aa' />
+    </div>
+  );
+}
+
+const foodILike = [
+
+  {
+    name: 'Kimchi', 
+    image: 'https://img.kr.news.samsung.com/kr/wp-content/uploads/2017/12/113.jpg',
+  },
+  {
+    name: 'Samgyeopsal', 
+    image: 'https://resource.grapplet.com/marketplace/8288/1600182142979/beef6.svg.preview.580x870.png',
+  },
+  {
+    name: 'BiBimbap', 
+    image: 'https://en.pimg.jp/009/989/190/1/9989190.jpg',
+  },
+  {
+    name: 'Doncasu', 
+    image: 'https://img.hankyung.com/photo/201105/201105238995k_2011052361321.jpg',
+  },
+  {
+    name: 'Kimbap', 
+    image: 'http://nunuhome.co.kr/web/product/big/202104/7fbd2aeccafa2b6aaa5bd44934aee890.png',
+  },
+
+
+];
+
+function renderFood(dish){
+  return <Food name={dish.name} picture={dish.image} />
+}
+
+function App() {
+  // return <div className="App" />;
+  return (
+    <div>
+      { foodILike.map(dish => (<Food name={dish.name} picture={dish.image} />)) }
+    
+
+    </div>
+  );
+}
+
+export default App;

@@ -1,0 +1,79 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+function Food({ name, picture, rating }){
+ 
+  return (
+    <div>
+      <h2>I like { name }</h2>
+      <h4>{rating}/5.0</h4>
+      <img src={picture} alt={name} />
+    </div>
+  );
+}
+
+const foodILike = [
+
+  {
+    id: 1,
+    name: 'Kimchi', 
+    image: 'https://img.kr.news.samsung.com/kr/wp-content/uploads/2017/12/113.jpg',
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: 'Samgyeopsal', 
+    image: 'https://resource.grapplet.com/marketplace/8288/1600182142979/beef6.svg.preview.580x870.png',
+    rating: 4.9,
+  },
+  {
+    id: 3,
+    name: 'BiBimbap', 
+    image: 'https://en.pimg.jp/009/989/190/1/9989190.jpg',
+    rating: 3.4,
+  },
+  {
+    id: 4,
+    name: 'Doncasu', 
+    image: 'https://img.hankyung.com/photo/201105/201105238995k_2011052361321.jpg',
+    rating: 2.3,
+  },
+  {
+    id: 5,
+    name: 'Kimbap', 
+    image: 'http://nunuhome.co.kr/web/product/big/202104/7fbd2aeccafa2b6aaa5bd44934aee890.png',
+    rating: 4.2,
+  },
+
+
+];
+
+/*
+function renderFood(dish){
+  return <Food name={dish.name} picture={dish.image} />
+}
+*/
+
+// const renderFood = dish => <Food name={dish.name} picture={dish.image} />
+
+function App() {
+  // return <div className="App" />;
+ // console.log(foodILike.map(renderFood));
+
+  return (
+    <div>
+      { foodILike.map(dish => (
+        <Food key={dish.id} name={dish.name} picture={dish.image} rating={dish.rating} />
+      )) }
+  
+    </div>
+  );
+}
+
+Food.propTypes = {
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  rating: PropTypes.number,
+}
+
+export default App;
